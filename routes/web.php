@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\Post;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use App\Modules\Post;
+use phpDocumentor\Reflection\Types\Collection;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +17,15 @@ use App\Modules\Post;
 |
 */
 
-Route::get('/', function () {
-    return view('posts');
+Route::get('/', function () {    
+    return view('posts',[
+        'posts'=>Post::all()
+    ]);
 });
 
 Route::get('posts/{post}', function ($slug) {
-    // Find a post by its slug and pass it to  a view called "post"
-
-    $post = Post::find($slug);
-
-    return view('post',[
-        'post' => $post
+    return view('post', [
+        'post' => Post::find($slug)
     ]);
-
     
-    
-})->where('post','[A-z_\-]+');
+})->where('post', '[A-z_/-]+');
