@@ -13,6 +13,8 @@ class Post extends Model
     //3 ways to do migration
     protected $guarded = [];
 
+    protected $with = ['category', 'author'];
+
     //protected $guarded = ['id'];
 
     // protected $fillable = ['title', 'excerpt', 'body'];
@@ -28,5 +30,10 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
