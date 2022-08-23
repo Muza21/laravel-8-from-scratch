@@ -1,16 +1,15 @@
 <?php
 
 use App\Http\Controllers\PostController;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
-use phpDocumentor\Reflection\Types\Collection;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
-
+// use phpDocumentor\Reflection\Types\Collection;
+// use Spatie\YamlFrontMatter\YamlFrontMatter;
+// use App\Models\Category;
+// use App\Models\Post;
+// use App\Models\User;
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\File;
+// use Illuminate\Support\Facades\Log;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +33,8 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 //     ]);
 // })->name('category');
 
-Route::get('authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'posts' => $author->posts
-    ]);
-});
+// Route::get('authors/{author:username}', function (User $author) {
+//     return view('posts.index', [
+//         'posts' => $author->posts,
+//     ]);
+// });
