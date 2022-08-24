@@ -11,7 +11,8 @@ class Post extends Model
 
 
     //3 ways to do migration
-    protected $guarded = [];
+    
+    // protected $guarded = [];
 
     protected $with = ['category', 'author'];
 
