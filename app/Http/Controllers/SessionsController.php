@@ -18,18 +18,19 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        if(auth()->attempt($attributes)){
-            return redirect('/')->with('success','Welcome Back!');
-        }
-
-        throw ValidationException::withMessages([
-            'email'=>'Your provided credentials could not be identified.'
-        ]);
-
-        // auth failed.
+        if(!auth()->attempt($attributes)){// auth failed.
+            throw ValidationException::withMessages([
+                'email'=>'Your provided credentials could not be identified.'
+            ]);
+        
         // return back()
         //     ->withInput()
         //     ->withErrors(['email'=>'Your provided credentials could not be identified.']);
+        }
+
+        return redirect('/')->with('success','Welcome Back!');
+
+        
     }
 
     public function destroy(){
